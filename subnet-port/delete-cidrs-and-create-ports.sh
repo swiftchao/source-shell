@@ -305,7 +305,7 @@ function create_port_by_subent_id() {
             let begin_port_ip_end_num++;
             while [ ${begin_port_ip_end_num} -lt 254 ]; do
               current_port_ip="$begin_port_ip_prefix$begin_port_ip_end_num"
-              grep -w "${current_port_ip}" "${EXIST_PORT_CSV_FILE_NAME}" /dev/null 2>&1
+              grep -w "${current_port_ip}" "${EXIST_PORT_CSV_FILE_NAME}" > /dev/null 2>&1
               IS_EXIST_PORT=$?
               if [ "$IS_EXIST_PORT" -ne 0 ]; then
                 create_result=`create_port "manual_allocated_${current_port_ip}" "manual_allocated_${current_port_ip}" "${current_port_ip}" "${subnet_id}"`
