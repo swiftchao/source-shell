@@ -126,7 +126,6 @@ function exec_args_query_in_cmp() {
 
 function exec_args_put_in_cmp() {
   if [ -n "${1}" ] && [ -n "${2}" ]; then
-  # -XPUT -HContent-type:text/plain --data "stuff:morestuff"
     query_args_result=$(curl -H "" -XPUT -HContent-type:application/json --data "${2}" -k http://${RESOURCE_CENTER_IP}:${RESOURCE_CENTER_PORT}/${1})
     echo $query_args_result
   fi
