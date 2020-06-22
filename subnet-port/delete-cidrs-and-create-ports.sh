@@ -1,5 +1,5 @@
 ########################################################################
-# File Name: check.sh
+# File Name: delete-cidrs-and-create-ports.sh
 # Author: chaofei
 # mail: chaofeibest@163.com
 # Created Time: 2020-06-22 14:10:38

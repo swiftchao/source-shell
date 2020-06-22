@@ -1,5 +1,5 @@
 ########################################################################
-# File Name: check.sh
+# File Name: check-firewall-rule.sh
 # Author: chaofei
 # mail: chaofeibest@163.com
 # Created Time: 2020-02-24 15:10:38
