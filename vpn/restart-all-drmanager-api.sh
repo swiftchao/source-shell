@@ -25,7 +25,6 @@ function scp_args_files () {
     IFS=",${now},"
     for nodes in ${ALL_NODES}; do
       UPDATE_HOST=$nodes
-      echo scp -r  "$SRC_FILE" $UPDATE_HOST:"$DST_DIR"
       scp -r  "$SRC_FILE" $UPDATE_HOST:"$DST_DIR"
     done
     echo "update the node host $UPDATE_HOST all success"
@@ -34,14 +33,14 @@ function scp_args_files () {
 }
 
 function restart_vpn_agent() {
-  #exec_args_cmd "systemctl restart neutron-vpn-agent"
-  exec_args_cmd "systemctl status neutron-vpn-agent"
+  exec_args_cmd "systemctl restart drmanager-api"
+  exec_args_cmd "systemctl status drmanager-api"
 }
 
 
 function main() {
-  scp_args_files $*
-  #restart_vpn_agent
+  #scp_args_files $*
+  restart_vpn_agent
 }
 
 main $*

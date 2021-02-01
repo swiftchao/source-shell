@@ -1,7 +1,7 @@
 # network 
-NUM_1=51
-NUM_2=52
-NUM_3=53
+NUM_1=61
+NUM_2=62
+NUM_3=63
 EXTERNAL_NETWORK_ID="1a841cc5-82dc-4dd4-9447-6f6a7ab6147d"
 SUBNET_IP_PREFIX="10.168."
 IMAGE_ID="d3cf1b90-f3af-41b1-87d7-97f6035f1109"
@@ -200,17 +200,17 @@ VPN_SERVICE_V4_IP_3=$(get_args_colume_value "neutron vpn-service-show $VPN_SERVI
 # vpn ipsec-site-connection
 # spoke to hub
 echo neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_1 --ikepolicy-id $IKE_POLICY_ID_1 --ipsecpolicy-id $IPSEC_POLICY_ID_1 --peer-id  $VPN_SERVICE_V4_IP_2 --peer-address  $VPN_SERVICE_V4_IP_2 --psk $VPN_PSK --local-ep-group $LOCAL_SUBNET_ENDPOINT_GROUP_1 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_2 --name cf-ipsec-site-connection-spoke-$NUM_1-to-hub-$NUM_2
-#neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_1 --ikepolicy-id $IKE_POLICY_ID_1 --ipsecpolicy-id $IPSEC_POLICY_ID_1 --peer-id  $VPN_SERVICE_V4_IP_2 --peer-address  $VPN_SERVICE_V4_IP_2 --psk $VPN_PSK --local-ep-group $LOCAL_SUBNET_ENDPOINT_GROUP_1 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_2 --name cf-ipsec-site-connection-spoke-$NUM_1-to-hub-$NUM_2
+neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_1 --ikepolicy-id $IKE_POLICY_ID_1 --ipsecpolicy-id $IPSEC_POLICY_ID_1 --peer-id  $VPN_SERVICE_V4_IP_2 --peer-address  $VPN_SERVICE_V4_IP_2 --psk $VPN_PSK --local-ep-group $LOCAL_SUBNET_ENDPOINT_GROUP_1 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_2 --name cf-ipsec-site-connection-spoke-$NUM_1-to-hub-$NUM_2
 
 echo neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_3 --ikepolicy-id $IKE_POLICY_ID_3 --ipsecpolicy-id $IPSEC_POLICY_ID_3 --peer-id  $VPN_SERVICE_V4_IP_2 --peer-address  $VPN_SERVICE_V4_IP_2 --psk $VPN_PSK --local-ep-group $LOCAL_SUBNET_ENDPOINT_GROUP_3 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_2 --name cf-ipsec-site-connection-spoke-$NUM_3-to-hub-$NUM_2 
-#neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_3 --ikepolicy-id $IKE_POLICY_ID_3 --ipsecpolicy-id $IPSEC_POLICY_ID_3 --peer-id  $VPN_SERVICE_V4_IP_2 --peer-address  $VPN_SERVICE_V4_IP_2 --psk $VPN_PSK --local-ep-group $LOCAL_SUBNET_ENDPOINT_GROUP_3 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_2 --name cf-ipsec-site-connection-spoke-$NUM_3-to-hub-$NUM_2 
+neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_3 --ikepolicy-id $IKE_POLICY_ID_3 --ipsecpolicy-id $IPSEC_POLICY_ID_3 --peer-id  $VPN_SERVICE_V4_IP_2 --peer-address  $VPN_SERVICE_V4_IP_2 --psk $VPN_PSK --local-ep-group $LOCAL_SUBNET_ENDPOINT_GROUP_3 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_2 --name cf-ipsec-site-connection-spoke-$NUM_3-to-hub-$NUM_2 
 
 # hub to spoke
 echo neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_2 --ikepolicy-id $IKE_POLICY_ID_2 --ipsecpolicy-id $IPSEC_POLICY_ID_2 --peer-id  $VPN_SERVICE_V4_IP_1 --peer-address  $VPN_SERVICE_V4_IP_1 --psk $VPN_PSK --local-ep-group $LOCAL_CIDR_ENDPOINT_GROUP_2 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_1 --name cf-ipsec-site-connection-hub-$NUM_2-to-spoke-$NUM_1
-#neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_2 --ikepolicy-id $IKE_POLICY_ID_2 --ipsecpolicy-id $IPSEC_POLICY_ID_2 --peer-id  $VPN_SERVICE_V4_IP_1 --peer-address  $VPN_SERVICE_V4_IP_1 --psk $VPN_PSK --local-ep-group $LOCAL_CIDR_ENDPOINT_GROUP_2 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_1 --name cf-ipsec-site-connection-hub-$NUM_2-to-spoke-$NUM_1
+neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_2 --ikepolicy-id $IKE_POLICY_ID_2 --ipsecpolicy-id $IPSEC_POLICY_ID_2 --peer-id  $VPN_SERVICE_V4_IP_1 --peer-address  $VPN_SERVICE_V4_IP_1 --psk $VPN_PSK --local-ep-group $LOCAL_CIDR_ENDPOINT_GROUP_2 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_1 --name cf-ipsec-site-connection-hub-$NUM_2-to-spoke-$NUM_1
 
 echo neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_2 --ikepolicy-id $IKE_POLICY_ID_2 --ipsecpolicy-id $IPSEC_POLICY_ID_2 --peer-id  $VPN_SERVICE_V4_IP_3 --peer-address  $VPN_SERVICE_V4_IP_3 --psk $VPN_PSK --local-ep-group $LOCAL_CIDR_ENDPOINT_GROUP_2 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_3 --name cf-ipsec-site-connection-hub-$NUM_2-to-spoke-$NUM_3
-#neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_2 --ikepolicy-id $IKE_POLICY_ID_2 --ipsecpolicy-id $IPSEC_POLICY_ID_2 --peer-id  $VPN_SERVICE_V4_IP_3 --peer-address  $VPN_SERVICE_V4_IP_3 --psk $VPN_PSK --local-ep-group $LOCAL_CIDR_ENDPOINT_GROUP_2 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_3 --name cf-ipsec-site-connection-hub-$NUM_2-to-spoke-$NUM_3
+neutron ipsec-site-connection-create --vpnservice-id $VPN_SERVICE_ID_2 --ikepolicy-id $IKE_POLICY_ID_2 --ipsecpolicy-id $IPSEC_POLICY_ID_2 --peer-id  $VPN_SERVICE_V4_IP_3 --peer-address  $VPN_SERVICE_V4_IP_3 --psk $VPN_PSK --local-ep-group $LOCAL_CIDR_ENDPOINT_GROUP_2 --peer-ep-group $PEER_CIDR_ENDPOINT_GROUP_3 --name cf-ipsec-site-connection-hub-$NUM_2-to-spoke-$NUM_3
 
 neutron ipsec-site-connection-list
 
