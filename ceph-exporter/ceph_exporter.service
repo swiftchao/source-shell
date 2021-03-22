@@ -1,0 +1,10 @@
+[Unit]
+Description=ceph_exporter for promethous
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ceph_exporter
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+

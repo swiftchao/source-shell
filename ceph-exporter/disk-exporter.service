@@ -1,0 +1,14 @@
+[Unit]
+Description=disk-exporter service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/disk-exporter-service  --log-file /var/log/exporters/disk_exporter.log --config-file /etc/disk_exporter/disk_exporter.conf
+PrivateTmp=true
+NotifyAccess=all
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
